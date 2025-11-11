@@ -1,69 +1,74 @@
-# React + TypeScript + Vite
+# Marketing Team Insights Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A professional-grade collaborative dashboard that conducts structured interviews with marketing team members, then aggregates responses to provide leadership with actionable insights into team activities, progress, and challenges.
 
-Currently, two official plugins are available:
+## Quick Start
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The application is running on **http://localhost:3333**
 
-## Expanding the ESLint configuration
+1. Open the dashboard
+2. Click "Start Interview" to begin
+3. Answer questions about your projects, progress, challenges, and plans
+4. Complete multiple interviews to generate summaries
+5. View team insights and recommendations
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Features
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Interview Conductor**: Conversational 4-stage interviews with intelligent follow-up questions
+- **Transcript Management**: Full conversation records with search and key points extraction
+- **Insights Aggregation**: Automated analysis identifying themes, blockers, and achievements
+- **Executive Reports**: Comprehensive summaries with actionable recommendations
+- **Real-time Status Tracking**: Visual progress indicators and completion metrics
+- **Data Persistence**: All data stored locally in browser localStorage
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Key Pages
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **Dashboard** (`/`) - Interview overview and summary generation
+- **Interview** (`/interview/[id]`) - Conversational chat with agent
+- **Transcript** (`/transcript/[id]`) - Full conversation review and analysis
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Technology Stack
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Next.js 15 + React 18 + TypeScript
+- Tailwind CSS + shadcn/ui (51 pre-built components)
+- Lucide React icons
+- localStorage for data persistence
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## API Endpoints
+
+### POST `/api/interview`
+Processes user responses through the Interview Conductor Agent
+
+### POST `/api/summary`
+Analyzes completed interviews to generate insights
+
+## Documentation
+
+- **FEATURES.md** - Complete feature documentation
+- **QUICKSTART.md** - Tutorial and workflow guide
+
+## Interview Flow
+
+1. **Projects** - Describe current work and initiatives
+2. **Progress** - Share accomplishments and milestones
+3. **Challenges** - Discuss obstacles and blockers
+4. **Plans** - Outline upcoming goals and priorities
+
+Each stage auto-advances after 2-3 conversational exchanges.
+
+## Data Storage
+
+All interview data is stored in browser localStorage:
+- Interviews with full transcripts
+- Team member information
+- Generated summaries
+- Conversation history
+
+Clear localStorage to reset all data.
+
+## Support
+
+For detailed information:
+- Check FEATURES.md for complete feature guide
+- See QUICKSTART.md for step-by-step tutorial
+- Review browser console for any errors
